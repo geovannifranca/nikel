@@ -12,6 +12,21 @@
 
 .coins{
     position: fixed;
-    bottom: -80px;
+    bottom: 100px;
 
+}
+.button-login{
+    border-radius: 10px;
+    background-color: #4e0070;
+    color: #ffffff;
+    width: 50%;
+    margin: 0 25%;
+    align-content: auto;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border: none;
+}
+
+.button-login:hover{
+    background-color: #4c79d3;
 }
