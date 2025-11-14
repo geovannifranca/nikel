@@ -11,7 +11,7 @@
 
 
 .coins{
-    position: fixed;
+    position: absolute;
     bottom: 100px;
 
 }
@@ -29,4 +29,13 @@
 
 .button-login:hover{
     background-color: #4c79d3;
+}
+
+.link-default{
+    color: #4e0070;
+    cursor: pointer;  
+}
+
+.link-default:hover{
+      color: #4c79d3;
 }
