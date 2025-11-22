@@ -52,13 +52,13 @@
                 <div class="col">
                   <form>
                     <div class="mb-3">
-                      <label for="exampleInputEmail1" class="form-label"
+                      <label for="email-create-input" class="form-label"
                         >E-mail</label
                       >
                       <input
                         type="email"
                         class="form-control"
-                        id="exampleInputEmail1"
+                        id="email-input"
                         aria-describedby="emailHelp"
                       />
                       <div id="emailHelp" class="form-text">
@@ -66,13 +66,13 @@
                       </div>
                     </div>
                     <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label"
+                      <label for="passwor-input" class="form-label"
                         >Senha</label
                       >
                       <input
                         type="password"
                         class="form-control"
-                        id="exampleInputPassword1"
+                        id="passwor-input"
                       />
                     </div>
                     <div class="mb-3 form-check">
@@ -92,9 +92,10 @@
               <div class="row">
                 <div class="col">
                   <p
+                    id="link-conta"
                     class="text-center mt-2 form-text"
                     data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop"
+                    data-bs-target="#register-modal"
                   >
                     Ainda não tem conta?
                     <span class="link-default">Criar uma conta.</span>
@@ -128,7 +129,7 @@
       <!-- modal -->
       <div
         class="modal fade"
-        id="staticBackdrop"
+        id="register-modal"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
         tabindex="-1"
@@ -148,31 +149,41 @@
                 aria-label="Close"
               ></button>
             </div>
-            <form>
+            <form id="create-form">
               <div class="modal-body">
                 <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label"
+                  <label for="email-create-input" class="form-label"
                     >E-mail</label
                   >
                   <input
+                    required
                     type="email"
                     class="form-control"
-                    id="exampleInputEmail1"
+                    id="email-create-input"
                     aria-describedby="emailHelp"
                   />
                   <div id="emailHelp" class="form-text">
-                    Utilize seu e-mail para realizar o login.
+                    Utilize seu e-mail para criar a sua conta<i
+                      class="fa fa-contao"
+                      aria-hidden="true"
+                    ></i
+                    >.
                   </div>
                 </div>
                 <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label"
+                  <label for="password-create-input" class="form-label"
                     >Senha</label
                   >
                   <input
+                    required
                     type="password"
                     class="form-control"
-                    id="exampleInputPassword1"
+                    id="password-create-input"
                   />
+                  <div id="emailHelp" class="form-text">
+                    Utilize uma senha fácil de lembrar e anote para não
+                    esquecer.<i class="fa fa-contao" aria-hidden="true"></i>
+                  </div>
                 </div>
               </div>
               <div class="modal-footer">
@@ -183,7 +194,7 @@
                 >
                   Cancelar
                 </button>
-                <button type="submit" class=" button-default">
+                <button type="submit" class="button-default">
                   Criar conta
                 </button>
               </div>
@@ -197,5 +208,6 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script src="./javascript/index.js"></script>
   </body>
 </html>
