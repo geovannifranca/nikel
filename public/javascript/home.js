@@ -86,20 +86,23 @@ function getCashIn() {
     for (let i = 0; i < limit; i++) {
       cashInHtml += `
         <div class="row mb-4">
-            <div class="col-12">
-                <h3 class="fs-2">R$ ${cashIn[i].value.toFixed(2)}</h3>
-                <div class="container p-0">
-                        <div class="row">
-                         <div class="col-12 col-md-8">
-                            <p>${cashIn[i].description}</p>
-                            </div>
-                        <div class="col-12 col-md-3 d-flex justify-content-end">
-                            ${cashIn[i].date}
-                        </div>
-                    </div>
-                </div>
+        <div class="col-12">
+            <div class="col d-flex">
+              <h3 class="fs-2">R$ ${cashIn[i].value.toFixed(2)}</h3>
+              <button type="button" class="btn" onclick="deleteTransaction(${i})"><i class="bi bi-trash text-danger"></i></button>
             </div>
+          <div class="container p-0">
+            <div class="row">
+              <div class="col-12 col-md-8">
+                <p>${cashIn[i].description}</p>
+              </div>
+              <div class="col-12 col-md-3 d-flex justify-content-end">
+                ${cashIn[i].date}
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
       `;
     }
 
@@ -125,7 +128,12 @@ function getCashOut() {
       cashInHtml += `
         <div class="row mb-4">
             <div class="col-12">
-                <h3 class="fs-2">R$ ${cashIn[i].value.toFixed(2)}</h3>
+                <div class="col d-flex">
+                  <h3 class="fs-2">R$ ${cashIn[i].value.toFixed(2)}</h3>
+                  <button type="button" class="btn" onclick="deleteTransaction(${i})">
+                    <i class="bi bi-trash text-danger"></i>
+                  </button>
+                </div>
                 <div class="container p-0">
                         <div class="row">
                          <div class="col-12 col-md-8">
@@ -139,6 +147,7 @@ function getCashOut() {
             </div>
         </div>
       `;
+
     }
 
     document.getElementById("cash-out-list").innerHTML = cashInHtml;
@@ -161,4 +170,17 @@ function getTotal(){
 
 function saveData(data) {
   localStorage.setItem(data.login, JSON.stringify(data));
+}
+
+function deleteTransaction(index) {
+  if (!confirm("Tem certeza que deseja deletar essa transação?")) return;
+
+  data.transactions.splice(index, 1);  // remove do array
+  saveData(data);
+
+  getCashIn();
+  getCashOut();
+  getTotal();
+
+  alert("Transação excluída com sucesso.");
 }

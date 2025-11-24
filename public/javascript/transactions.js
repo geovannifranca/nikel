@@ -64,30 +64,46 @@ function logout() {
   window.location.href = "index.html";
 }
 
-function getTransactions(){
-    const transactions = data.transactions;
-    let transactionsHtml = ``;
+function getTransactions() {
+  const transactions = data.transactions;
+  let transactionsHtml = ``;
 
-    if(transactions.length){
-        transactions.forEach((item) =>{
-            let type = "Entrada";
+  if (transactions.length) {
+    transactions.forEach((item, i) => {
+      let type = item.type === "2" ? "Saída" : "Entrada";
 
-            if(item.type === "2"){
-                type = "Saída";
-            }
-            transactionsHtml +=  `
-                <tr>
-                    <th scope="row">${item.date}</th>
-                    <td>R$${item.value.toFixed(2)}</td>
-                    <td>${type}</td>
-                    <td>${item.description}</td>
-                </tr>
-            `;
-        });
-    }
-    document.getElementById("transactions-list").innerHTML = transactionsHtml;
+      transactionsHtml += `
+        <tr>
+          <th scope="row">${item.date}</th>
+          <td>R$ ${item.value.toFixed(2)}</td>
+          <td>${type}</td>
+          <td>${item.description}</td>
+          <td>
+            <button type="button" class="btn" onclick="deleteTransaction(${i})">
+              <i class="bi bi-trash text-danger"></i>
+            </button>
+          </td>
+        </tr>
+      `;
+    });
+  }
+
+  document.getElementById("transactions-list").innerHTML = transactionsHtml;
 }
+
 
 function saveData(data) {
   localStorage.setItem(data.login, JSON.stringify(data));
 }
+
+function deleteTransaction(index) {
+  if (!confirm("Tem certeza que deseja excluir esta transação?")) return;
+
+  data.transactions.splice(index, 1); 
+  saveData(data);
+
+  getTransactions(); 
+
+  alert("Transação excluída com sucesso.");
+}
+
