@@ -44,7 +44,7 @@
             class="collapse navbar-collapse justify-content-end"
             id="navbarSupportedContent"
           >
-            <div class="d-flex">
+            <div class="d-flex menu">
               <a href="home.html"
                 ><button class="btn" type="button">
                   <i class="bi bi-house-door-fill fs-4"></i></button
@@ -65,8 +65,11 @@
                 >
                   <i class="bi bi-person-circle fs-4"></i>
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="#">Sair</a></li>
+                <ul
+                  class="dropdown-menu logout"
+                  aria-labelledby="dropdownMenuButton1"
+                >
+                  <button class="dropdown-item" id="button-logout">Sair</button>
                 </ul>
               </div>
             </div>
@@ -101,13 +104,8 @@
                         <th scope="col">Descrição</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">16/11/2025</th>
-                        <td>R$ 50.00</td>
-                        <td>Saída</td>
-                        <td>Almoço</td>
-                      </tr>
+                    <tbody id="transactions-list">
+                      
                     </tbody>
                   </table>
                 </div>
@@ -146,12 +144,12 @@
                 aria-label="Close"
               ></button>
             </div>
-            <form class="transaction-form">
+            <form id="transaction-form">
               <div class="modal-body">
                 <div class="mb-3">
                   <label for="value-input" class="form-label">Valor</label>
                   <input
-                    type="number"
+                    type="number" step="any"
                     class="form-control"
                     id="value-input"
                     aria-describedby="emailHelp"
@@ -178,10 +176,12 @@
                       type="radio"
                       name="type-input"
                       id="inlineRadio1"
-                      value="1" 
+                      value="1"
                       checked
                     />
-                    <label class="form-check-label" for="inlineRadio1">Entrada</label>
+                    <label class="form-check-label" for="inlineRadio1"
+                      >Entrada</label
+                    >
                   </div>
                   <div class="form-check form-check-inline">
                     <input
@@ -191,7 +191,9 @@
                       id="inlineRadio2"
                       value="2"
                     />
-                    <label class="form-check-label" for="inlineRadio2">Saída</label>
+                    <label class="form-check-label" for="inlineRadio2"
+                      >Saída</label
+                    >
                   </div>
                 </div>
               </div>
@@ -215,5 +217,6 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script src="./javascript/transactions.js"></script>
   </body>
 </html>

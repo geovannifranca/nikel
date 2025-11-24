@@ -85,6 +85,11 @@ header{
     border: 2px solid #4e0070;
 }
 
+.form-check {
+  position: relative;
+  z-index: 1;
+}
+
 .button-float:hover{
     border: 2px solid #4c79d3;
     background-color: #ffffff;
@@ -106,3 +111,13 @@ header{
     border-radius: 20px 20px 0px 0px;
     padding: 20px 0px 0px 0px;
 }
+
+.logout{
+    min-width: 5rem !important;
+}
+
+.menu{
+    margin-right: 20px;
+    
+}
+
